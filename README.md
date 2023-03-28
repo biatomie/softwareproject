@@ -1,7 +1,7 @@
 # softwareproject
     Este é o trabalho de conclusão de curso Análise e Desenvolvimento de Sistemas da Faculdade Impacta 
 ## Integrantes: 
-    Bianca Tomie Yabiku
+    Bianca Tomie Yabiku - RA: 2100240 - bianca.yabiku@aluno.faculdadeimpacta.com.br
 ## Projeto: 
     Venda de Imóveis
 ## Lista de Requisitos:
