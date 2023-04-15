@@ -3,6 +3,7 @@ import ImovelController from "../controllers/imoveisController.js";
 
 const router = express.Router();
 
+
 router
     .get("/imoveis", ImovelController.listarImovel)
     .get("/imoveis/:id", ImovelController.listarImovelPorId)

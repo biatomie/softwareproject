@@ -2,8 +2,9 @@ import express from "express";
 import imoveis from "./imoveisRoutes.js"
 
 const routes = (app) => {
-    app.route('/').get((req, res) => {
-        res.status(200).send({titulo: "Imobiliária"})
+    app.route('/imoveis').get((req, res) => {
+        // res.status(200).send({titulo: "Imobiliária"})
+        res.render('views')
     })
 
     app.use(

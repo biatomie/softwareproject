@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" type="text/css" href="/assets/aside.css">
+<!-- <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head> -->
+<div id="cadastro">
+  <aside>
+    <strong>Cadastro de Imóvel<br/></strong>
+    <form action = "/imoveis" method = "post">
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "logradouro"> Logradouro: </label>
+          <input type="text" name="logradouro" required />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "bairro"> Bairro: </label>
+          <input type="text" name="bairro" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "cidade"> Cidade: </label>
+          <input type="text" name="cidade" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "quartos"> Quartos: </label>
+          <input type="number" name="quartos" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "banheiros"> Banheiros: </label>
+          <input type="number" name="banheiros" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "vagas"> Vagas: </label>
+          <input type="number" name="vagas" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "valor"> Valor: </label>
+          <input type="number" name="valor" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "metragem"> Metragem: </label>
+          <input type="number" name="metragem" />
+        </div>
+        </p>
+        <button type = "submit" > Salvar </button>
+    </form>
+  </aside>
+</div>

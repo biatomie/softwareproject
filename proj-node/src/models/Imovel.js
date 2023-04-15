@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const imoveisSchema = new mongoose.Schema(
     {
         id: {type: String},
-        rua: {type: String},
+        logradouro: {type: String},
         bairro: {type: String},
         cidade: {type: String},
         metragem: {type: Number},

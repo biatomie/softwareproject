@@ -1,0 +1,85 @@
+aside {
+    width: 320px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    background: #FFF;
+    box-shadow: 0 0 14px 0;
+    border-radius: 10px;
+    padding: 30px 30px;
+    position: fixed;
+    color: #2b2828;
+}
+
+aside strong {
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color: #333;
+}
+
+aside form {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+aside form .input-block {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+aside form .input-block label {
+    margin-bottom: 10px;
+    color: #acacac;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    display: block;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px; /* Adds gap of 16px for both rows and columns */
+    
+} 
+
+aside form .input-block input {
+    width: 100%;
+    height: 32px;
+    float: right;
+    font-size: 14px;
+    color: #666;
+    border: 0px;
+    border-bottom: 1px solid #EEE;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+}
+
+aside form .input-block label, input {
+    width: 100%;
+    margin: 3px 0
+}
+
+aside form button {
+    width: 100%;
+    border: 0;
+    margin-top: 30px;
+    background: #FFD3CA;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+}
+
+aside form button:hover {
+    width: 100%;
+    border: 0;
+    margin-top: 30px;
+    background: #db4325;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+} 
