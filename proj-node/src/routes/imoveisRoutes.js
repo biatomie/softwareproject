@@ -5,10 +5,11 @@ const router = express.Router();
 
 
 router
-    .get("/imoveis", ImovelController.listarImovel)
+    // .get("/imoveis", ImovelController.listarImovel)
     .get("/imoveis/:id", ImovelController.listarImovelPorId)
     .post("/imoveis", ImovelController.cadastrarImovel)
     .put("/imoveis/:id", ImovelController.atualizarImovel)
     .delete("/imoveis/:id", ImovelController.excluirImovel)
+    .get("/imoveis", ImovelController.page)
 
 export default router;

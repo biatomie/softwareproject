@@ -14,6 +14,6 @@ const imoveisSchema = new mongoose.Schema(
     }
 );
 
-const imoveis = mongoose.model("imoveis", imoveisSchema);
+const dbImoveisMd = mongoose.model("dbImoveis", imoveisSchema);
 
-export default imoveis;
+export default dbImoveisMd;

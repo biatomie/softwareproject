@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <link rel="stylesheet" type="text/css" href="/assets/aside.css">
-<!-- <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-</head> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<head>
+  <h1>Trabalho da matéria softwareproject - Faculdade Impacta - ADS - Turma A</h1>
+  <h2>Integrante do grupo: Bianca Tomie Yabiku - RA: 2100240 - bianca.yabiku@aluno.faculdadeimpacta.com.br</h2>
+  <h3> API de cadastro de imóveis - Elaborado com Node.js, MongoDB e ejs </h3>
+</head>
 <div id="cadastro">
   <aside>
     <strong>Cadastro de Imóvel<br/></strong>
@@ -59,6 +60,47 @@
         </div>
         </p>
         <button type = "submit" > Salvar </button>
+
+        
     </form>
   </aside>
 </div>
+<tabela>
+  <div>
+
+  </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="Id">ID</th>
+          <th scope="Logradouro">Logradouro</th>
+          <th scope="Bairro">Bairro</th>
+          <th scope="Cidade">Cidade</th>
+          <th scope="Quartos">Quartos</th>
+          <th scope="Banheiros">Banheiros</th>
+          <th scope="Vagas">Vagas</th>
+          <th scope="Metragem">Metragem</th>
+          <th scope="Valor">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+      <%imoveisList.forEach(dbImoveis => {%>
+        
+        <tr>
+          <th scope="row"><%= dbImoveis._id%></th>
+          <td><%= dbImoveis.logradouro%></td>
+          <td><%= dbImoveis.bairro%></td>
+          <td><%= dbImoveis.cidade%></td>
+          <td><%= dbImoveis.quartos%></td>
+          <td><%= dbImoveis.banheiros%></td>
+          <td><%= dbImoveis.vagas%></td>
+          <td><%= dbImoveis.metragem%></td>
+          <td><%= dbImoveis.valor%></td>
+        </tr>
+        <%})%>
+        
+      </tbody>
+    </table>
+
+  </tabela>
