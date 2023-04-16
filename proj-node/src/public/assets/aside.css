@@ -19,6 +19,18 @@ h3 {
     color: #333;
 }
 
+search {
+    width: 80%;
+    height: 32px;
+    float: right;
+    font-size: 14px;
+    color: #666;
+    border: 0px;
+    border-bottom: 1px solid #EEE;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+}
+
 aside {
     width: 320px;
     margin-top: 30px;

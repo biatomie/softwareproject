@@ -6,7 +6,14 @@
   <h1>Trabalho da matéria softwareproject - Faculdade Impacta - ADS - Turma A</h1>
   <h2>Integrante do grupo: Bianca Tomie Yabiku - RA: 2100240 - bianca.yabiku@aluno.faculdadeimpacta.com.br</h2>
   <h3> API de cadastro de imóveis - Elaborado com Node.js, MongoDB e ejs </h3>
-</head>
+ </head>
+
+<div class="searchbar"> 
+  <form action="/search" method="POST">
+    <input type="search" name="searchTerm" class="form-control" placeholder="Buscar por Bairro" aria-label="Search"> 
+  </form>
+</div>
+
 <div id="cadastro">
   <aside>
     <strong>Cadastro de Imóvel<br/></strong>
@@ -85,20 +92,19 @@
         </tr>
       </thead>
       <tbody>
-      <%imoveisList.forEach(dbImoveis => {%>
-        
+      <% imoveisList.forEach(dbImoveis => { %>
         <tr>
-          <th scope="row"><%= dbImoveis._id%></th>
-          <td><%= dbImoveis.logradouro%></td>
-          <td><%= dbImoveis.bairro%></td>
-          <td><%= dbImoveis.cidade%></td>
-          <td><%= dbImoveis.quartos%></td>
-          <td><%= dbImoveis.banheiros%></td>
-          <td><%= dbImoveis.vagas%></td>
-          <td><%= dbImoveis.metragem%></td>
-          <td><%= dbImoveis.valor%></td>
+          <th scope="row"><%= dbImoveis._id %></th>
+          <td><%= dbImoveis.logradouro %></td>
+          <td><%= dbImoveis.bairro %></td>
+          <td><%= dbImoveis.cidade %></td>
+          <td><%= dbImoveis.quartos %></td>
+          <td><%= dbImoveis.banheiros %></td>
+          <td><%= dbImoveis.vagas %></td>
+          <td><%= dbImoveis.metragem %></td>
+          <td><%= dbImoveis.valor %></td>
         </tr>
-        <%})%>
+      <% })%>
         
       </tbody>
     </table>
