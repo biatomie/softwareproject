@@ -1,18 +1,16 @@
 import dbImoveisMd from "../models/Imovel.js";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
 
 class ImovelController {
   
   static page = async(req,res) => {
 
-
-    const messages = await req.consumeFlash("info");
+    // const messages = await req.consumeFlash("info");
     const locals = {
       title: "NodeJs",
       description: "Free NodeJs User Management System"
     };
-
     let perPage = 12;
     let page = req.query.page || 1;
   
@@ -27,8 +25,8 @@ class ImovelController {
         locals,
         imoveisList,
         current: page,
-        pages: Math.ceil(count / perPage),
-        messages
+        pages: Math.ceil(count / perPage)
+        // messages
       });
             
     } catch(err) {
@@ -36,38 +34,10 @@ class ImovelController {
     }
   };
   
-  static listarImovel = async (req, res) => {
-    try{
-      await dbImoveisMd.find();
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  };
-  static listarImovelPorId = async (req, res) => {
-    try{
-      const id = req.params.id;
-      const imoveisId = await dbImoveisMd.findById(id);
-      await dbImoveisMd.findById(id);
-      if (imoveisId !== null) {
-        res.status(200).json(imoveisId);
-      } else {
-        res.status(404).send({message: "Id do Imóvel não localizado."});
-      }
-      res.redirect("imoveis");
-      //  res.status(200).json(todosImoveisId)
-    } catch (err) {
-      // next(err);
-      if (err instanceof mongoose.Error.CastError){
-        res.status(400).send({message: "Um ou mais dados fornecidos estão incorretos"});
-      }
-      res.status(500).send({message: "Erro interno de servidor oi"});
-    }
-  };
- 
   static cadastrarImovel = async (req, res) => {
     try {
       let imovel = await new dbImoveisMd(req.body);
-      imovel.save();            
+      imovel.save();     
       // res.status(201).send(imovel.toJSON());
       res.redirect("imoveis");
     } catch (err) {
@@ -76,12 +46,45 @@ class ImovelController {
   };
     
 
+  static editar = async (req, res) => {
+    try {
+      const imoveisList = await dbImoveisMd.findOne({ _id: req.params.id });
+  
+      const locals = {
+        title: "Edit Customer Data",
+        description: "Free NodeJs User Management System",
+      };
+  
+      res.render("edit", {
+        locals,
+        imoveisList
+      });
+  
+    } catch (err) {
+      console.log(err);
+    }
+  
+  };
+
+
   static atualizarImovel = async (req, res) => {
     try{
-      const id = req.params.id;
-      await dbImoveisMd.findByIdAndUpdate(id, {$set: req.body});
-      // res.redirect("imoveis");
-      // res.status(201).send({message: `Imóvel com o id: ${id} foi atualizado com sucesso`});
+      // await dbImoveisMd.findByIdAndUpdate(req.params.id, {$set: req.body});
+      await dbImoveisMd.findByIdAndUpdate(req.params.id,{
+        logradouro: req.body.logradouro,
+        bairro: req.body.bairro,
+        cidade: req.body.cidade,
+        quartos: req.body.quartos,
+        banheiros: req.body.banheiros,
+        vagas: req.body.vagas,
+        metragem: req.body.metragem,
+        valor: req.body.valor,
+        updatedAt: Date.now()
+
+      });
+      res.redirect("/imoveis");
+      // await res.redirect(`/edit/${req.params.id}`);
+  
     } catch(err) {
       res.status(500).send({message: `${err} - falha ao atualizar o imóvel com o id` });
     }        
@@ -92,35 +95,13 @@ class ImovelController {
   static excluirImovel = async(req,res) => {
     try{
       const id = req.params.id;
-      await dbImoveisMd.findOneAndDelete({ _id: id });
-      res.redirect("/imoveis");
+      await dbImoveisMd.findByIdAndDelete({ _id: id });
+      res.redirect("imoveis");
     } catch(err) {
       res.status(500).send({message: `${err} - falha ao remover o imóvel com o id`});
     }
   };
 
-
-  // eslint-disable-next-line no-unused-vars
-  static listarImoveisPorBairro = async (req, res, next) => {
-    try {
-      // const bairro = req.query.bairro;
-
-      // const imoveisResultado = await dbImoveisMd.find({"bairro": bairro});
-
-      let searchTerm = req.body.searchTerm;
-      let imovelResult = await dbImoveisMd.find( { $text: { $search: searchTerm, $diacriticSensitive: true}});
-      res.status(200).send(imovelResult);
-      res.json(dbImoveisMd);
-      // res.render("search", {title: "Resultado da Pesquisa por Bairro", imovelResult});
-    } catch (err) {
-      // next(err);
-      if (err instanceof mongoose.Error.CastError){
-        res.status(400).send({message: "Um ou mais dados fornecidos estão incorretos"});
-      }
-      res.status(500).send({message: "Erro interno de servidor oi"});
-    
-    }
-  };
   /**
  * Get /
  * Search Customer Data 

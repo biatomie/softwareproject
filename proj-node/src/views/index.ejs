@@ -1,22 +1,22 @@
-
 <body>
-<div id="cadastro">
-  <aside>
-    <strong>Cadastro de Imóvel<br/></strong>
+  <div id="cadastro">
+    <aside>
+      
+      <strong>Cadastro de Imóvel<br/></strong>
     <form action = "/imoveis" method = "post">
         <p>
-        <div className='input-block'>
+          <div className='input-block'>
           <label htmlFor = "logradouro"> Logradouro: </label>
           <input type="text" name="logradouro" required />
         </div>
-        </p>
-        <p>
+      </p>
+      <p>
         <div className='input-block'>
           <label htmlFor = "bairro"> Bairro: </label>
           <input type="text" name="bairro" />
         </div>
-        </p>
-        <p>
+      </p>
+      <p>
         <div className='input-block'>
           <label htmlFor = "cidade"> Cidade: </label>
           <input type="text" name="cidade" />
@@ -27,43 +27,38 @@
           <label htmlFor = "quartos"> Quartos: </label>
           <input type="number" name="quartos" />
         </div>
-        </p>
-        <p>
+      </p>
+      <p>
         <div className='input-block'>
           <label htmlFor = "banheiros"> Banheiros: </label>
           <input type="number" name="banheiros" />
         </div>
-        </p>
-        <p>
+      </p>
+      <p>
         <div className='input-block'>
           <label htmlFor = "vagas"> Vagas: </label>
           <input type="number" name="vagas" />
         </div>
-        </p>
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "valor"> Valor: </label>
-          <input type="number" name="valor" />
-        </div>
-        </p>
-        <p>
+      </p>
+      <p>
         <div className='input-block'>
           <label htmlFor = "metragem"> Metragem: </label>
           <input type="number" name="metragem" />
         </div>
-        </p>
-        <button type = "submit" > Salvar </button>
-
-        <form action="/" method="get">
-          <button type='submit' class="btn btn-lg">Delete</button>
-        </form>
-        
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "valor"> Valor: </label>
+          <input type="number" name="valor" />
+        </div>
+      </p>
+      <button type = "submit" > Salvar </button>       
     </form>
   </aside>
 </div>
 <tabela>
   <div>
-
+    
   </div>
 
     <table class="table">
@@ -92,16 +87,59 @@
           <td><%= dbImoveis.vagas %></td>
           <td><%= dbImoveis.metragem %></td>
           <td><%= dbImoveis.valor %></td>
-          <td><a href="/imoveis/<%= dbImoveis._id %>" type="button" class="btn btn-primary btn-small"> <i class="bi bi-eye"></i></a></td>
-          <td><a href="/imoveis/<%= dbImoveis._id %>" type="button" class="btn btn-warning btn-small"><i class="bi bi-pencil"></i></a></td>
-          <td><form action="/imoveis/<%= dbImoveis._id %>?_method=DELETE" method="POST" class="position-relative">
-            <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-person-x"></i></button>
-          </form></td>
+          <td class="text-end">
+            <div class="d-flex flex-row justify-content-end gap-2">
+              <a href="/edit/<%= dbImoveis._id %>" type="button" class="btn btn-secondary btn-small"><i class="bi bi-pencil"></i></a>
+              <form action="/imoveis/<%= dbImoveis._id %>?_method=DELETE" method="POST" class="position-relative">
+                <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-trash-fill"></i></button>
+              </form>
+            </div>
+          </td>
         </tr>
       <% })%>
         
       </tbody>
+      <div class="pagination">
+        <% if (imoveisList.length > 0) { %>
+          <nav aria-label="Dashboard Pagination">
+            <ul class="pagination justify-content-center mt-5">        
+              <% if (current == 1) { %>
+                <li class="page-item disabled"><a href="#" class="page-link">First</a></li>
+              <% } else { %>
+                <li class="page-item"><a href="/imoveis/?page=1" class="page-link">First</a></li>
+              <% } %>
+        
+              <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+              <% if(i !== 1) { %>
+                <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+              <% } %>
+        
+              <% for(; i <= (Number(current) + 4) && i <= pages; i++ ) { %>
+                <% if (i == current) { %>
+                  <li class="page-item disabled"><a href="#" class="page-link"><%= i %></a></li>
+                <% } else { %>
+                  <li class="page-item"><a href="/imoveis/?page=<%= i %>" class="page-link"><%= i %></a></li>
+                <% } %>
+                <% if (i == Number(current) + 4 && i < pages) { %>
+                  <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+                <% } %>
+              <% } %>
+        
+              <% if (current == pages) { %>
+                <li class="page-item disabled"><a href="#" class="page-link">Last</a></li>
+              <% } else { %>
+                <li class="page-item"><a href="/imoveis/?page=<%= pages %>" class="page-link">Last</a></li>
+              <% } %>
+        
+            </ul>
+          </nav>
+        <% } %>
+      </div>
     </table>
-
+    
   </tabela>
+  
+  
+</div>
 </body>
+

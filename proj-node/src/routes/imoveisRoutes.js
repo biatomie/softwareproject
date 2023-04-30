@@ -5,14 +5,13 @@ const router = express.Router();
 
 
 router
-// .get("/imoveis", ImovelController.listarImovel)
   .get("/", ImovelController.page)
-  .get("/imoveis/:id", ImovelController.listarImovelPorId)
-  .post("/imoveis/:id", ImovelController.excluirImovel)
   .post("/imoveis", ImovelController.cadastrarImovel)
-  .put("/imoveis/:id", ImovelController.atualizarImovel)
+  .post("/imoveis/:id", ImovelController.excluirImovel)
   .get("/imoveis", ImovelController.page)
-  .post("/search", ImovelController.procurar);
-// .get("/search", ImovelController.listarImoveisPorBairro);
+  .post("/search", ImovelController.procurar)
+  .get("/edit/:id", ImovelController.editar)
+  .post("/edit/:id", ImovelController.atualizarImovel);
+
 
 export default router;

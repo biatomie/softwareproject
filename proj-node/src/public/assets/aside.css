@@ -1,19 +1,19 @@
 h1 {
-    font-size: 15px;
+    font-size: 30px;
     text-align: center;
     display: block;
     color: #db4325;
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 20px;
     text-align: center;
     display: block;
     color: #333;
 }
 
 h3 {
-    font-size: 10px;
+    font-size: 20px;
     text-align: center;
     display: block;
     color: #333;
@@ -116,6 +116,91 @@ aside form button:hover {
     color: #FFF;
     cursor: pointer;
 } 
+edit {
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    background: #FFF;
+    box-shadow: 0 0 14px 0;
+    border-radius: 10px;
+    padding: 30px 30px;
+    position: fixed;
+    color: #2b2828;
+}
+
+edit strong {
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color: #333;
+}
+
+edit form {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+edit form .input-block {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+edit form .input-block label {
+    margin-bottom: 10px;
+    color: #acacac;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    display: block;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px; /* Adds gap of 16px for both rows and columns */
+    
+} 
+
+edit form .input-block input {
+    width: 100%;
+    height: 32px;
+    float: right;
+    font-size: 14px;
+    color: #666;
+    border: 0px;
+    border-bottom: 1px solid #EEE;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+}
+
+edit form .input-block label, input {
+    width: 100%;
+    margin: 3px 0
+}
+
+edit form button {
+    width: 100%;
+    border: 0;
+    margin-top: 30px;
+    background: #FFD3CA;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+}
+
+edit form button:hover {
+    width: 100%;
+    border: 0;
+    margin-top: 30px;
+    background: #db4325;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+} 
 
 tabela {
     width: 70%;
@@ -125,7 +210,7 @@ tabela {
     background: #FFF;
     box-shadow: 0 0 14px 0;
     border-radius: 10px;
-    padding: 30px 30px;
+    padding: 30px 30px 100px;
     position: fixed;
     color: #2b2828;
 }
@@ -135,5 +220,19 @@ tabela strong {
     text-align: center;
     display: block;
     color: #333;
+}
+
+.pagination {
+    padding: 10px 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+footer {
+    padding: 1px 2px;
+    height: 5vh;
+    position: absolute;
+    bottom: 0;
 }
 

@@ -1,112 +1,110 @@
 
 <body>
-<div id="cadastro">
-  <aside>
-    <strong>Cadastro de Imóvel<br/></strong>
-    <form action = "/imoveis" method = "post">
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "logradouro"> Logradouro: </label>
-          <input type="text" name="logradouro" required />
-        </div>
-        </p>
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "bairro"> Bairro: </label>
-          <input type="text" name="bairro" />
-        </div>
-        </p>
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "cidade"> Cidade: </label>
-          <input type="text" name="cidade" />
-        </div>
-        </p>
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "quartos"> Quartos: </label>
-          <input type="number" name="quartos" />
-        </div>
-        </p>
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "banheiros"> Banheiros: </label>
-          <input type="number" name="banheiros" />
-        </div>
-        </p>
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "vagas"> Vagas: </label>
-          <input type="number" name="vagas" />
-        </div>
-        </p>
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "valor"> Valor: </label>
-          <input type="number" name="valor" />
-        </div>
-        </p>
-        <p>
-        <div className='input-block'>
-          <label htmlFor = "metragem"> Metragem: </label>
-          <input type="number" name="metragem" />
-        </div>
-        </p>
-        <button type = "submit" > Salvar </button>
-
-        <form action="/" method="get">
-          <button type='submit' class="btn btn-lg">Delete</button>
-        </form>
-        
-    </form>
-  </aside>
-</div>
-<tabela>
-  <div>
-
-  </div>
-  <div class="table-responsive">
-    <% if (imoveisList != "") { %>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="Id">ID</th>
-            <th scope="Logradouro">Logradouro</th>
-            <th scope="Bairro">Bairro</th>
-            <th scope="Cidade">Cidade</th>
-            <th scope="Quartos">Quartos</th>
-            <th scope="Banheiros">Banheiros</th>
-            <th scope="Vagas">Vagas</th>
-            <th scope="Metragem">Metragem</th>
-            <th scope="Valor">Valor</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% imoveisList.forEach(dbImoveis => { %>
-          <tr>
-            <th scope="row"><%= dbImoveis._id %></th>
-            <td><%= dbImoveis.logradouro %></td>
-            <td><%= dbImoveis.bairro %></td>
-            <td><%= dbImoveis.cidade %></td>
-            <td><%= dbImoveis.quartos %></td>
-            <td><%= dbImoveis.banheiros %></td>
-            <td><%= dbImoveis.vagas %></td>
-            <td><%= dbImoveis.metragem %></td>
-            <td><%= dbImoveis.valor %></td>
-            <td><a href="/imoveis/<%= dbImoveis._id %>" type="button" class="btn btn-primary btn-small"> <i class="bi bi-eye"></i></a></td>
-            <td><a href="/imoveis/<%= dbImoveis._id %>" type="button" class="btn btn-warning btn-small"><i class="bi bi-pencil"></i></a></td>
-            <td><form action="/imoveis/<%= dbImoveis._id %>?_method=DELETE" method="POST" class="position-relative">
-              <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-person-x"></i></button>
-            </form></td>
-          </tr>
-        <% })%>
+  <div id="cadastro">
+    <aside>
+      <strong>Cadastro de Imóvel<br/></strong>
+      <form action = "/imoveis" method = "post">
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "logradouro"> Logradouro: </label>
+            <input type="text" name="logradouro" required />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "bairro"> Bairro: </label>
+            <input type="text" name="bairro" />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "cidade"> Cidade: </label>
+            <input type="text" name="cidade" />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "quartos"> Quartos: </label>
+            <input type="number" name="quartos" />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "banheiros"> Banheiros: </label>
+            <input type="number" name="banheiros" />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "vagas"> Vagas: </label>
+            <input type="number" name="vagas" />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "valor"> Valor: </label>
+            <input type="number" name="valor" />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "metragem"> Metragem: </label>
+            <input type="number" name="metragem" />
+          </div>
+          </p>
+          <button type = "submit" > Salvar </button>
           
-        </tbody>
-      </table>
-    <% } else { %>
-      <h2>No results found.</h2>
-    <% } %>
+      </form>
+    </aside>
+  </div>
+  <tabela>
+    <div class="table-responsive">
+      <% if (imoveisList != "") { %>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="Id">ID</th>
+              <th scope="Logradouro">Logradouro</th>
+              <th scope="Bairro">Bairro</th>
+              <th scope="Cidade">Cidade</th>
+              <th scope="Quartos">Quartos</th>
+              <th scope="Banheiros">Banheiros</th>
+              <th scope="Vagas">Vagas</th>
+              <th scope="Metragem">Metragem</th>
+              <th scope="Valor">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% imoveisList.forEach(dbImoveis => { %>
+            <tr>
+              <th scope="row"><%= dbImoveis._id %></th>
+              <td><%= dbImoveis.logradouro %></td>
+              <td><%= dbImoveis.bairro %></td>
+              <td><%= dbImoveis.cidade %></td>
+              <td><%= dbImoveis.quartos %></td>
+              <td><%= dbImoveis.banheiros %></td>
+              <td><%= dbImoveis.vagas %></td>
+              <td><%= dbImoveis.metragem %></td>
+              <td><%= dbImoveis.valor %></td>
+              <td class="text-end">
+                <div class="d-flex flex-row justify-content-end gap-2">
+                  <a href="/edit/<%= dbImoveis._id %>" type="button" class="btn btn-secondary btn-small"><i class="bi bi-pencil"></i></a>
+                  <form action="/imoveis/<%= dbImoveis._id %>?_method=DELETE" method="POST" class="position-relative">
+                    <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-trash-fill"></i></button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% })%>
+            
+          </tbody>
+        </table>
+      <% } else { %>
+        <h2>No results found.</h2>
+      <% } %>
+      </div>
 
   </tabela>
+  
 </body>

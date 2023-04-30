@@ -38,8 +38,8 @@ routes(app);
 // Static files 
 app.use(express.static("public"));
 
-// 404
 
+// Page 404
 app.get("*", (req,res) => {
   res.status(404).render("404");
 });

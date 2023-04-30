@@ -1,0 +1,62 @@
+<body>
+  <div id="editar">
+    <edit>
+      
+      <strong>Editar Imóvel: <%= imoveisList.logradouro %><br/></strong>
+    <form action="/edit/<%= imoveisList._id %>?_method=PUT" method="POST">
+        <p>
+          <div className='input-block'>
+          <label htmlFor = "logradouro"> Logradouro: </label>
+          <input type="text" name="logradouro" value="<%= imoveisList.logradouro %>" required />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "bairro"> Bairro: </label>
+          <input type="text" name="bairro" value="<%= imoveisList.bairro %>"/>
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "cidade"> Cidade: </label>
+          <input type="text" name="cidade" value="<%= imoveisList.cidade %>" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "quartos"> Quartos: </label>
+          <input type="number" name="quartos" value="<%= imoveisList.quartos %>" />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "banheiros"> Banheiros: </label>
+          <input type="number" name="banheiros" value="<%= imoveisList.banheiros %>" />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "vagas"> Vagas: </label>
+          <input type="number" name="vagas" value="<%= imoveisList.vagas %>" />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "metragem"> Metragem: </label>
+          <input type="number" name="metragem" value="<%= imoveisList.metragem %>" />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "valor"> Valor: </label>
+          <input type="number" name="valor" value="<%= imoveisList.valor %>" />
+        </div>
+      </p>
+      <button type = "submit" > Salvar </button>       
+    </form>
+  </edit>
+</div>
+  
+</div>
+</body>
+
