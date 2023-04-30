@@ -4,8 +4,8 @@ import dbImoveisMd from "../models/Imovel.js";
 
 const routes = (app) => {
   app.route("/").get((req, res) => {
-    // res.status(200).send({titulo: "Imobiliária"})
-    res.render("index");
+    res.status(200).send({titulo: "Imobiliária"});
+    // res.status(200).render("index");
   });
   app.route("/imoveis").get((req, res) => {
     // res.status(200).send({titulo: "Imobiliária"})

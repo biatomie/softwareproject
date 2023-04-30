@@ -1,27 +1,76 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <link rel="stylesheet" type="text/css" href="/assets/aside.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-<head>
-  <h1>Trabalho da matéria softwareproject - Faculdade Impacta - ADS - Turma A</h1>
-  <h2>Integrante do grupo: Bianca Tomie Yabiku - RA: 2100240 - bianca.yabiku@aluno.faculdadeimpacta.com.br</h2>
-  <h3> API de cadastro de imóveis - Elaborado com Node.js, MongoDB e ejs </h3>
- </head>
 
-<div class="searchbar"> 
-  <form action="/search" method="POST">
-    <input type="search" name="searchTerm" class="form-control" placeholder="Buscar por Bairro" aria-label="Search"> 
-  </form>
+<body>
+<div id="cadastro">
+  <aside>
+    <strong>Cadastro de Imóvel<br/></strong>
+    <form action = "/imoveis" method = "post">
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "logradouro"> Logradouro: </label>
+          <input type="text" name="logradouro" required />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "bairro"> Bairro: </label>
+          <input type="text" name="bairro" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "cidade"> Cidade: </label>
+          <input type="text" name="cidade" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "quartos"> Quartos: </label>
+          <input type="number" name="quartos" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "banheiros"> Banheiros: </label>
+          <input type="number" name="banheiros" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "vagas"> Vagas: </label>
+          <input type="number" name="vagas" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "valor"> Valor: </label>
+          <input type="number" name="valor" />
+        </div>
+        </p>
+        <p>
+        <div className='input-block'>
+          <label htmlFor = "metragem"> Metragem: </label>
+          <input type="number" name="metragem" />
+        </div>
+        </p>
+        <button type = "submit" > Salvar </button>
+
+        <form action="/" method="get">
+          <button type='submit' class="btn btn-lg">Delete</button>
+        </form>
+        
+    </form>
+  </aside>
 </div>
+<tabela>
+  <div>
 
-<h1> Resultados da busca por Bairro</h1>
-<div class = "imoveisResult">
+  </div>
+  <div class="table-responsive">
+    <% if (imoveisList != "") { %>
 
-    <tabela>
-
-        <table class="table">
+      <table class="table">
         <thead>
-            <tr>
+          <tr>
             <th scope="Id">ID</th>
             <th scope="Logradouro">Logradouro</th>
             <th scope="Bairro">Bairro</th>
@@ -31,11 +80,11 @@
             <th scope="Vagas">Vagas</th>
             <th scope="Metragem">Metragem</th>
             <th scope="Valor">Valor</th>
-            </tr>
+          </tr>
         </thead>
         <tbody>
-        <% imoveisSearch.forEach(function(dbImoveis, index) { %>
-            <tr>
+        <% imoveisList.forEach(dbImoveis => { %>
+          <tr>
             <th scope="row"><%= dbImoveis._id %></th>
             <td><%= dbImoveis.logradouro %></td>
             <td><%= dbImoveis.bairro %></td>
@@ -45,11 +94,19 @@
             <td><%= dbImoveis.vagas %></td>
             <td><%= dbImoveis.metragem %></td>
             <td><%= dbImoveis.valor %></td>
-            </tr>
+            <td><a href="/imoveis/<%= dbImoveis._id %>" type="button" class="btn btn-primary btn-small"> <i class="bi bi-eye"></i></a></td>
+            <td><a href="/imoveis/<%= dbImoveis._id %>" type="button" class="btn btn-warning btn-small"><i class="bi bi-pencil"></i></a></td>
+            <td><form action="/imoveis/<%= dbImoveis._id %>?_method=DELETE" method="POST" class="position-relative">
+              <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-person-x"></i></button>
+            </form></td>
+          </tr>
         <% })%>
-            
+          
         </tbody>
-        </table>
-    
-    </tabela>
-</div> -->
+      </table>
+    <% } else { %>
+      <h2>No results found.</h2>
+    <% } %>
+
+  </tabela>
+</body>

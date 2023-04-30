@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 dotenv.config();
 
+mongoose.set("strictQuery", false);
+
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 
