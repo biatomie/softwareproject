@@ -69,19 +69,7 @@ class ImovelController {
 
   static atualizarImovel = async (req, res) => {
     try{
-      // await dbImoveisMd.findByIdAndUpdate(req.params.id, {$set: req.body});
-      await dbImoveisMd.findByIdAndUpdate(req.params.id,{
-        logradouro: req.body.logradouro,
-        bairro: req.body.bairro,
-        cidade: req.body.cidade,
-        quartos: req.body.quartos,
-        banheiros: req.body.banheiros,
-        vagas: req.body.vagas,
-        metragem: req.body.metragem,
-        valor: req.body.valor,
-        updatedAt: Date.now()
-
-      });
+      await dbImoveisMd.findByIdAndUpdate(req.params.id, {$set: req.body});
       res.redirect("/imoveis");
       // await res.redirect(`/edit/${req.params.id}`);
   
