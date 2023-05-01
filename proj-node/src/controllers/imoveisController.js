@@ -96,7 +96,7 @@ class ImovelController {
     try{
       const id = req.params.id;
       await dbImoveisMd.findByIdAndDelete({ _id: id });
-      res.redirect("imoveis");
+      res.redirect("/imoveis");
     } catch(err) {
       res.status(500).send({message: `${err} - falha ao remover o imóvel com o id`});
     }
