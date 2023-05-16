@@ -202,6 +202,28 @@ edit form button:hover {
     cursor: pointer;
 } 
 
+asideCadastro {
+    width: 320px;
+    margin-top: 50px;
+    margin-bottom: 500px;
+    margin-left: 950px;
+    background: #FFF;
+    box-shadow: 0 0 14px 0;
+    border-radius: 10px;
+    padding: 30px 30px;
+    position: fixed;
+    justify-items: center;
+    color: #2b2828;
+}
+
+asideCadastro strong {
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color: #333;
+}
+
+
 tabela {
     width: 70%;
     margin-top: 30px;
@@ -221,6 +243,30 @@ tabela strong {
     display: block;
     color: #333;
 }
+
+
+tabelaCadastro {
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    background: #FFF;
+    box-shadow: 0 0 14px 0;
+    border-radius: 10px;
+    padding: 30px 30px;
+    position: fixed;
+    color: #2b2828;
+}
+
+tabelaCadastro strong {
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color: #333;
+}
+
+
+
 
 .pagination {
     padding: 10px 30px;

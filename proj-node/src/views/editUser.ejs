@@ -1,0 +1,27 @@
+<body>
+  <div id="editar">
+    <edit>
+      
+      <strong>Editar Usuário: <%= usersList.username %><br/></strong>
+    <form action="/editUser/<%= usersList._id %>?_method=PUT" method="POST">
+        <p>
+          <div className='input-block'>
+          <label htmlFor = "username"> username: </label>
+          <input type="text" name="username" value="<%= usersList.username %>" required />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "senha"> senha: </label>
+          <input type="text" name="senha" value="<%= usersList.senha %>"/>
+        </div>
+      </p>
+      
+      <button type = "submit" > Salvar </button>       
+    </form>
+  </edit>
+</div>
+  
+</div>
+</body>
+

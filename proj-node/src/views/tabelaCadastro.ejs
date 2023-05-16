@@ -1,0 +1,52 @@
+<body>
+  <div id="tabelaCadastro">
+    <tabelaCadastro>      
+      <strong>Cadastro de Usuário<br/></strong>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="Id">ID</th>
+          <th scope="username">username</th>
+          <th scope="senha">senha</th>
+
+        </tr>
+      </thead>
+      <tbody>
+      <% usersList.forEach(dbUsers => { %>
+        <tr>
+          <th scope="row"><%= dbUsers._id %></th>
+          <td><%= dbUsers.username %></td>
+          <td><%= dbUsers.senha %></td>
+          <td class="text-end">
+            <div class="d-flex flex-row justify-content-end gap-2">
+              <a href="/editUser/<%= dbUsers._id %>" type="button" class="btn btn-secondary btn-small position-relative"><i class="bi bi-pencil"></i></a>
+              <form action="/tabelaCadastro/<%= dbUsers._id %>?_method=DELETE" method="POST" class="position-relative">
+                <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-trash-fill"></i></button>
+              </form>
+            </div>
+          </td>
+        </tr>
+      <% })%>
+
+
+
+
+     
+        
+      </tbody>
+     
+    </table>
+    
+  </tabela>
+  
+  
+</div>
+</tabelaCadastro>
+
+
+</body>
+
+
+
+

@@ -9,7 +9,7 @@ class ImovelController {
     // const messages = await req.consumeFlash("info");
     const locals = {
       title: "NodeJs",
-      description: "Free NodeJs User Management System"
+      description: "Página cadastro de imóveis"
     };
     let perPage = 12;
     let page = req.query.page || 1;
@@ -51,8 +51,8 @@ class ImovelController {
       const imoveisList = await dbImoveisMd.findOne({ _id: req.params.id });
   
       const locals = {
-        title: "Edit Customer Data",
-        description: "Free NodeJs User Management System",
+        title: "Editar imóveis",
+        description: "Função para editar imóveis",
       };
   
       res.render("edit", {
@@ -97,8 +97,8 @@ class ImovelController {
   static procurar = async (req, res) => {
 
     const locals = {
-      title: "Search Customer Data",
-      description: "Free NodeJs User Management System",
+      title: "Procurar imóveis",
+      description: "Função para procurar imóveis",
     };
 
     try {

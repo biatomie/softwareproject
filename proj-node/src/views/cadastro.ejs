@@ -1,0 +1,31 @@
+<body>
+  <div id="cadastro">
+    <asideCadastro>
+      
+      <strong>Cadastro de Usuário<br/></strong>
+    <form action = "/cadastro" method = "post">
+        <p>
+          <div className='input-block'>
+          <label htmlFor = "username"> Username: </label>
+          <input type="text" name="username" required />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "senha"> Senha (mínimo de 8 caracteres): </label>
+          <input type="password" name="senha" id="pass" minlength="8" required />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "confsenha"> Confirmar senha: </label>
+          <input type="password" name="confsenha" id="confpass" minlength="8" required />
+        </div>
+      </p>
+      <button type = "submit" > Cadastrar </button>       
+    </form>
+  </asideCadastro>
+</div>
+</body>
+
+
