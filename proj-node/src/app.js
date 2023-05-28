@@ -27,24 +27,11 @@ app.use(express.json());//interpretar a resposta em json
 
 routes(app);
 
-// eslint-disable-next-line no-unused-vars
-// app.use((err, req, res, next) => {
-//   if (err instanceof mongoose.Error.CastError){
-//     res.status(400).send({message: "Um ou mais dados fornecidos estão incorretos"});
-//   }
-//   res.status(500).send({message: "Erro interno de servidor oi"});
-// });
-
 // Static files 
 app.use(express.static("public"));
-
 
 // Page 404
 app.get("*", (req,res) => {
   res.status(404).render("404");
 });
-
-
-
-
 export default app;

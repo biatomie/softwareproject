@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const imoveisSchema = new mongoose.Schema(
+const propertiesSchema = new mongoose.Schema(
   {
     id: {type: String},
     logradouro: {type: String},
@@ -14,8 +14,8 @@ const imoveisSchema = new mongoose.Schema(
   }
 );
 
-// imoveisSchema.index({ bairro: "text"});
+// propertiesSchema.index({ bairro: "text"});
 
-const dbImoveisMd = mongoose.model("dbImoveis", imoveisSchema);
+const dbPropertiesMd = mongoose.model("dbproperties", propertiesSchema);
 
-export default dbImoveisMd;
+export default dbPropertiesMd;

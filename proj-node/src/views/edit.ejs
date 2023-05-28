@@ -2,54 +2,54 @@
   <div id="editar">
     <edit>
       
-      <strong>Editar Imóvel: <%= imoveisList.logradouro %><br/></strong>
-    <form action="/edit/<%= imoveisList._id %>?_method=PUT" method="POST">
+      <strong>Editar Imóvel: <%= propertiesList.logradouro %><br/></strong>
+    <form action="/edit/<%= propertiesList._id %>?_method=PUT" method="POST">
         <p>
           <div className='input-block'>
           <label htmlFor = "logradouro"> Logradouro: </label>
-          <input type="text" name="logradouro" value="<%= imoveisList.logradouro %>" required />
+          <input type="text" name="logradouro" value="<%= propertiesList.logradouro %>" required />
         </div>
       </p>
       <p>
         <div className='input-block'>
           <label htmlFor = "bairro"> Bairro: </label>
-          <input type="text" name="bairro" value="<%= imoveisList.bairro %>"/>
+          <input type="text" name="bairro" value="<%= propertiesList.bairro %>"/>
         </div>
       </p>
       <p>
         <div className='input-block'>
           <label htmlFor = "cidade"> Cidade: </label>
-          <input type="text" name="cidade" value="<%= imoveisList.cidade %>" />
+          <input type="text" name="cidade" value="<%= propertiesList.cidade %>" />
         </div>
         </p>
         <p>
         <div className='input-block'>
           <label htmlFor = "quartos"> Quartos: </label>
-          <input type="number" name="quartos" value="<%= imoveisList.quartos %>" />
+          <input type="number" name="quartos" value="<%= propertiesList.quartos %>" />
         </div>
       </p>
       <p>
         <div className='input-block'>
           <label htmlFor = "banheiros"> Banheiros: </label>
-          <input type="number" name="banheiros" value="<%= imoveisList.banheiros %>" />
+          <input type="number" name="banheiros" value="<%= propertiesList.banheiros %>" />
         </div>
       </p>
       <p>
         <div className='input-block'>
           <label htmlFor = "vagas"> Vagas: </label>
-          <input type="number" name="vagas" value="<%= imoveisList.vagas %>" />
+          <input type="number" name="vagas" value="<%= propertiesList.vagas %>" />
         </div>
       </p>
       <p>
         <div className='input-block'>
           <label htmlFor = "metragem"> Metragem: </label>
-          <input type="number" name="metragem" value="<%= imoveisList.metragem %>" />
+          <input type="number" name="metragem" value="<%= propertiesList.metragem %>" />
         </div>
       </p>
       <p>
         <div className='input-block'>
           <label htmlFor = "valor"> Valor: </label>
-          <input type="number" name="valor" value="<%= imoveisList.valor %>" />
+          <input type="number" name="valor" value="<%= propertiesList.valor %>" />
         </div>
       </p>
       <button type = "submit" > Salvar </button>       

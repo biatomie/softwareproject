@@ -202,7 +202,7 @@ edit form button:hover {
     cursor: pointer;
 } 
 
-asideCadastro {
+asideRegister {
     width: 320px;
     margin-top: 50px;
     margin-bottom: 500px;
@@ -216,7 +216,7 @@ asideCadastro {
     color: #2b2828;
 }
 
-asideCadastro strong {
+asideRegister strong {
     font-size: 20px;
     text-align: center;
     display: block;
@@ -245,7 +245,7 @@ tabela strong {
 }
 
 
-tabelaCadastro {
+registerTable {
     width: 90%;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -258,7 +258,7 @@ tabelaCadastro {
     color: #2b2828;
 }
 
-tabelaCadastro strong {
+registerTable strong {
     font-size: 20px;
     text-align: center;
     display: block;

@@ -1,8 +1,8 @@
-import dbImoveisMd from "../models/Imovel.js";
+import dbPropertiesMd from "../models/property.js";
 // import mongoose from "mongoose";
 
 
-class ImovelController {
+class propertyController {
   
   static page = async(req,res) => {
 
@@ -15,15 +15,15 @@ class ImovelController {
     let page = req.query.page || 1;
   
     try {
-      const imoveisList = await dbImoveisMd.aggregate([ { $sort: { createdAt: -1 } } ])
+      const propertiesList = await dbPropertiesMd.aggregate([ { $sort: { createdAt: -1 } } ])
         .skip(perPage * page - perPage)
         .limit(perPage)
         .exec(); 
-      const count = await dbImoveisMd.count();
+      const count = await dbPropertiesMd.count();
 
       res.render("index", {
         locals,
-        imoveisList,
+        propertiesList,
         current: page,
         pages: Math.ceil(count / perPage)
         // messages
@@ -34,9 +34,9 @@ class ImovelController {
     }
   };
   
-  static cadastrarImovel = async (req, res) => {
+  static newProperty = async (req, res) => {
     try {
-      let imovel = await new dbImoveisMd(req.body);
+      let imovel = await new dbPropertiesMd(req.body);
       imovel.save();     
       // res.status(201).send(imovel.toJSON());
       res.redirect("imoveis");
@@ -46,9 +46,9 @@ class ImovelController {
   };
     
 
-  static editar = async (req, res) => {
+  static editProperty = async (req, res) => {
     try {
-      const imoveisList = await dbImoveisMd.findOne({ _id: req.params.id });
+      const propertiesList = await dbPropertiesMd.findOne({ _id: req.params.id });
   
       const locals = {
         title: "Editar imóveis",
@@ -57,7 +57,7 @@ class ImovelController {
   
       res.render("edit", {
         locals,
-        imoveisList
+        propertiesList
       });
   
     } catch (err) {
@@ -67,9 +67,9 @@ class ImovelController {
   };
 
 
-  static atualizarImovel = async (req, res) => {
+  static updateProperty = async (req, res) => {
     try{
-      await dbImoveisMd.findByIdAndUpdate(req.params.id, {$set: req.body});
+      await dbPropertiesMd.findByIdAndUpdate(req.params.id, {$set: req.body});
       res.redirect("/imoveis");
       // await res.redirect(`/edit/${req.params.id}`);
   
@@ -80,10 +80,10 @@ class ImovelController {
   /**
    * DELETE /
   */
-  static excluirImovel = async(req,res) => {
+  static deleteProperty = async(req,res) => {
     try{
       const id = req.params.id;
-      await dbImoveisMd.findByIdAndDelete({ _id: id });
+      await dbPropertiesMd.findByIdAndDelete({ _id: id });
       res.redirect("/imoveis");
     } catch(err) {
       res.status(500).send({message: `${err} - falha ao remover o imóvel com o id`});
@@ -94,7 +94,7 @@ class ImovelController {
  * Get /
  * Search Customer Data 
 */
-  static procurar = async (req, res) => {
+  static searchProperty = async (req, res) => {
 
     const locals = {
       title: "Procurar imóveis",
@@ -105,7 +105,7 @@ class ImovelController {
       let searchTerm = req.body.searchTerm;
       const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
 
-      const imoveisList = await dbImoveisMd.find({
+      const propertiesList = await dbPropertiesMd.find({
         $or: [
           { bairro: { $regex: new RegExp(searchNoSpecialChar, "i") }},
           { logradouro: { $regex: new RegExp(searchNoSpecialChar, "i") }},
@@ -114,7 +114,7 @@ class ImovelController {
       });
 
       res.render("search", {
-        imoveisList,
+        propertiesList,
         locals
       });
       
@@ -126,4 +126,4 @@ class ImovelController {
 
 }
 
-export default ImovelController;
+export default propertyController;

@@ -5,13 +5,13 @@ const router = express.Router();
 
 
 router
-  .post("/cadastro", userController.cadastrarUser)
-  .post("/tabelaCadastro/:id", userController.excluirUser)
-  .get("/cadastro", userController.pageUser)
-  .get("/tabelaCadastro", userController.pageTabela)
-  .post("/searchUser", userController.procurarUser)
-  .get("/editUser/:id", userController.editarUser)
-  .post("/editUser/:id", userController.atualizarUser);
+  .get("/register", userController.pageUser)
+  .get("/registerTable", userController.pageTable)
+  .post("/register", userController.newUser)
+  .get("/editUser/:id", userController.editUser)
+  .post("/editUser/:id", userController.updateUser)
+  .post("/registerTable/:id", userController.deleteUser)
+  .post("/searchUser", userController.searchUser);
 
 
 export default router;

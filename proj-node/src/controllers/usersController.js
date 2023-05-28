@@ -6,9 +6,9 @@ class userController {
   
   static pageUser = async(req,res) => {
 
-    res.render("cadastro");
+    res.render("register");
   };
-  static pageTabela = async(req,res) => {
+  static pageTable = async(req,res) => {
 
     // const messages = await req.consumeFlash("info");
     const locals = {
@@ -25,7 +25,7 @@ class userController {
         .exec(); 
       const count = await dbUsersMd.count();
 
-      res.render("tabelaCadastro", {
+      res.render("registerTable", {
         locals,
         usersList,
         current: page,
@@ -38,19 +38,19 @@ class userController {
     }
   };
   
-  static cadastrarUser = async (req, res) => {
+  static newUser = async (req, res) => {
     try {
       let user = await new dbUsersMd(req.body);
       user.save();     
       // res.status(201).send(imovel.toJSON());
-      res.redirect("cadastro");
+      res.redirect("register");
     } catch (err) {
       res.status(500).send({ message: `${err.message} - falha ao cadastrar usuário.` });
     }
   };
     
 
-  static editarUser = async (req, res) => {
+  static editUser = async (req, res) => {
     try {
       const usersList = await dbUsersMd.findOne({ _id: req.params.id });
   
@@ -71,10 +71,10 @@ class userController {
   };
 
 
-  static atualizarUser = async (req, res) => {
+  static updateUser = async (req, res) => {
     try{
       await dbUsersMd.findByIdAndUpdate(req.params.id, {$set: req.body});
-      res.redirect("/tabelaCadastro");
+      res.redirect("/registerTable");
       // await res.redirect(`/edit/${req.params.id}`);
   
     } catch(err) {
@@ -84,11 +84,11 @@ class userController {
   /**
    * DELETE /
   */
-  static excluirUser = async(req,res) => {
+  static deleteUser = async(req,res) => {
     try{
       const id = req.params.id;
       await dbUsersMd.findByIdAndDelete({ _id: id });
-      res.redirect("/tabelaCadastro");
+      res.redirect("/registerTable");
     } catch(err) {
       res.status(500).send({message: `${err} - falha ao remover o imóvel com o id`});
     }
@@ -98,7 +98,7 @@ class userController {
  * Get /
  * Search Customer Data 
 */
-  static procurarUser = async (req, res) => {
+  static searchUser = async (req, res) => {
 
     const locals = {
       title: "Procurar usuário",

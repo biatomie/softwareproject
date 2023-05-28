@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// imoveisSchema.index({ senha: "text"});
+
 
 const dbUsersMd = mongoose.model("dbUsers", userSchema);
 

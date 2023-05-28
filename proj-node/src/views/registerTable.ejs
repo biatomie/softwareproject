@@ -1,6 +1,6 @@
 <body>
-  <div id="tabelaCadastro">
-    <tabelaCadastro>      
+  <div id="registerTable">
+    <registerTable>      
       <strong>Cadastro de Usuário<br/></strong>
     
     <table class="table">
@@ -21,7 +21,7 @@
           <td class="text-end">
             <div class="d-flex flex-row justify-content-end gap-2">
               <a href="/editUser/<%= dbUsers._id %>" type="button" class="btn btn-secondary btn-small position-relative"><i class="bi bi-pencil"></i></a>
-              <form action="/tabelaCadastro/<%= dbUsers._id %>?_method=DELETE" method="POST" class="position-relative">
+              <form action="/registerTable/<%= dbUsers._id %>?_method=DELETE" method="POST" class="position-relative">
                 <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-trash-fill"></i></button>
               </form>
             </div>
@@ -29,10 +29,6 @@
         </tr>
       <% })%>
 
-
-
-
-     
         
       </tbody>
      
@@ -42,7 +38,7 @@
   
   
 </div>
-</tabelaCadastro>
+</registerTable>
 
 
 </body>
