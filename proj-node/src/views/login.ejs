@@ -1,0 +1,49 @@
+<body>
+  <div id="login">
+    <asideLogin>
+      
+      <strong>Acesso de Usuário<br/></strong>
+    <form action = "/" method = "post">
+        <p>
+          <div className='input-block'>
+          <label htmlFor = "email"> Email: </label>
+          <input type="text" name="email" required />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "password"> Senha: </label>
+          <input type="password" name="password" id="password" minlength="8" required />
+        </div>
+      </p>
+      <p>
+        <a link rel="stylesheet" href="/register"> Ainda não tenho cadastro</a></br>
+      </p>
+      
+      <button type = "submit"> Entrar </button>       
+    </form>
+  </asideLogin>
+</div>
+<!-- <script type="text/javascript">
+  function Logar(){
+    email = document.querySelector('#email').value;
+    senha = document.querySelector('#password').value;
+
+    if(!email || !password){
+      return alert('Por favor, complete os campos.');
+    }
+
+    axios.post('api/users/logar', {
+      email, password
+    }).then(response => {
+      return alert(response.data.erro);
+    } else {
+      window.location.href = '/privado';
+    }
+    })
+    })
+  }
+</script> -->
+</body>
+
+

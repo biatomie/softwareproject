@@ -2,7 +2,7 @@
   <div id="register">
     <asideRegister>
       
-      <strong>register de Usuário<br/></strong>
+      <strong>Cadastro de Usuário<br/></strong>
     <form action = "/register" method = "post">
         <p>
           <div className='input-block'>
@@ -12,8 +12,14 @@
       </p>
       <p>
         <div className='input-block'>
-          <label htmlFor = "senha"> Senha (mínimo de 8 caracteres): </label>
-          <input type="password" name="senha" id="pass" minlength="8" required />
+        <label htmlFor = "email"> Email: </label>
+        <input type="email" name="email" required />
+      </div>
+    </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "password"> Senha (mínimo de 8 caracteres): </label>
+          <input type="password" name="password" id="password" minlength="8" required />
         </div>
       </p>
       <p>
@@ -22,7 +28,7 @@
           <input type="password" name="confsenha" id="confpass" minlength="8" required />
         </div>
       </p>
-      <button type = "submit" > Cadastrar </button>       
+      <button type = "submit"> Cadastrar </button>       
     </form>
   </asideRegister>
 </div>

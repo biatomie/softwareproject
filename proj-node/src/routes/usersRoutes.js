@@ -5,6 +5,10 @@ const router = express.Router();
 
 
 router
+  .get("/login", userController.pageLogin)
+  .get("/home", userController.pageHome)
+  .post("/", userController.login)
+  .get("/logout", userController.pageLogout)
   .get("/register", userController.pageUser)
   .get("/registerTable", userController.pageTable)
   .post("/register", userController.newUser)

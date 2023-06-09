@@ -12,8 +12,14 @@
       </p>
       <p>
         <div className='input-block'>
-          <label htmlFor = "senha"> senha: </label>
-          <input type="text" name="senha" value="<%= usersList.senha %>"/>
+        <label htmlFor = "email"> email: </label>
+        <input type="text" name="email" value="<%= usersList.email %>" required />
+      </div>
+    </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "password"> senha: </label>
+          <input type="text" name="password" value="<%= usersList.password %>"/>
         </div>
       </p>
       

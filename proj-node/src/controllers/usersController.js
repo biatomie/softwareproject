@@ -1,13 +1,60 @@
-import dbUsersMd from "../models/User.js";
-// import mongoose from "mongoose";
+import dbUsersMd from "../models/user.js";
+import jsonwebtoken from "jsonwebtoken";
 
 
 class userController {
+
+  static pageHome = async(req,res) => {
+
+    res.render("home");
+  };
+
   
   static pageUser = async(req,res) => {
 
     res.render("register");
   };
+
+  static pageLogin = async(req,res) => {
+
+    res.render("login");
+  };
+
+  static login = async(req,res) => {
+    const {email, password } = req.body;
+    console.log(email, password);
+
+    if (!email || !password) {
+      return res.status(400).send({message: "Dados insuficientes"});
+    }
+    try {
+      const find = await dbUsersMd.find({ email, password });
+  
+      if (!find || find.length === 0) {
+        return res.status(401).send({message: "E-mail ou senha incorretos"});
+      }
+  
+      const token = jsonwebtoken.sign(
+        {
+          id: find[0]._id,
+          username: find[0].username,
+          email: find[0].email,
+        },
+        "SenhaParaProtegerOToken"
+      );
+  
+      res.cookie("Token", token);
+      res.redirect("home");
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ err: "Erro ao verificar login." });
+    }
+  };
+  
+  static pageLogout = async (req, res) => {
+    res.render("logout");
+  };
+
   static pageTable = async(req,res) => {
 
     // const messages = await req.consumeFlash("info");
@@ -43,7 +90,7 @@ class userController {
       let user = await new dbUsersMd(req.body);
       user.save();     
       // res.status(201).send(imovel.toJSON());
-      res.redirect("register");
+      res.redirect("login");
     } catch (err) {
       res.status(500).send({ message: `${err.message} - falha ao cadastrar usuário.` });
     }
@@ -112,6 +159,7 @@ class userController {
       const usersList = await dbUsersMd.find({
         $or: [
           { username: { $regex: new RegExp(searchNoSpecialChar, "i") }},
+          { email: { $regex: new RegExp(searchNoSpecialChar, "i") }},
           { senha: { $regex: new RegExp(searchNoSpecialChar, "i") }}
         ]
       });

@@ -8,7 +8,8 @@
         <tr>
           <th scope="Id">ID</th>
           <th scope="username">username</th>
-          <th scope="senha">senha</th>
+          <th scope="email">email</th>
+          <th scope="password">senha</th>
 
         </tr>
       </thead>
@@ -17,7 +18,8 @@
         <tr>
           <th scope="row"><%= dbUsers._id %></th>
           <td><%= dbUsers.username %></td>
-          <td><%= dbUsers.senha %></td>
+          <td><%= dbUsers.email %></td>
+          <td><%= dbUsers.password %></td>
           <td class="text-end">
             <div class="d-flex flex-row justify-content-end gap-2">
               <a href="/editUser/<%= dbUsers._id %>" type="button" class="btn btn-secondary btn-small position-relative"><i class="bi bi-pencil"></i></a>

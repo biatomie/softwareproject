@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router
-  .get("/", propertyController.page)
+  // .get("/", propertyController.page)
   .get("/imoveis", propertyController.page)
   .post("/imoveis", propertyController.newProperty)
   .get("/edit/:id", propertyController.editProperty)

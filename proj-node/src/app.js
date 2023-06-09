@@ -1,6 +1,7 @@
 import express from "express";
 import expressLayout from "express-ejs-layouts";
-// import mongoose from "mongoose";
+import cors from "cors";
+import cookieParser from "cookie-parser";
 import db from "./config/dbConnect.js";
 import routes from "./routes/index.js";
 
@@ -24,11 +25,19 @@ app.use(
 );
 
 app.use(express.json());//interpretar a resposta em json
+app.use(cors());
+app.use(cookieParser());
+
 
 routes(app);
 
 // Static files 
 app.use(express.static("public"));
+
+//login
+app.get("/", (req,res) => {
+  res.render("../views/login");
+});
 
 // Page 404
 app.get("*", (req,res) => {
