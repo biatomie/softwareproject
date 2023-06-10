@@ -1,0 +1,34 @@
+<a link rel="stylesheet" href="/home"> Voltar</a></br>
+
+<body>
+  <div id="editar">
+    <edit>
+      
+      <strong>Editar Cliente: <%= clientsList.name %><br/></strong>
+    <form action="/edit/<%= clientsList._id %>?_method=PUT" method="POST">
+        <p>
+          <div className='input-block'>
+          <label htmlFor = "name"> Nome: </label>
+          <input type="text" name="name" value="<%= clientsList.name %>" required />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "email"> E-mail: </label>
+          <input type="text" name="email" value="<%= clientsList.email %>"/>
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "whatsapp"> WhatsApp: </label>
+          <input type="text" name="whatsapp" value="<%= clientsList.whatsapp %>" />
+        </div>
+        </p>
+      <button type = "submit" > Salvar </button>       
+    </form>
+  </edit>
+</div>
+  
+</div>
+</body>
+

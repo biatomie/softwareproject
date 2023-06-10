@@ -1,3 +1,5 @@
+<a link rel="stylesheet" href="/home"> Voltar</a></br>
+
 <body>
   <div id="editar">
     <edit>
@@ -50,6 +52,18 @@
         <div className='input-block'>
           <label htmlFor = "valor"> Valor: </label>
           <input type="number" name="valor" value="<%= propertiesList.valor %>" />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "client"> Cliente: </label>
+          <input type="text" name="client" value="<%= propertiesList.client %>" />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "user"> Usuário: </label>
+          <input type="text" name="user" value="<%= propertiesList.user %>" />
         </div>
       </p>
       <button type = "submit" > Salvar </button>       

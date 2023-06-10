@@ -90,6 +90,7 @@ class userController {
       let user = await new dbUsersMd(req.body);
       user.save();     
       // res.status(201).send(imovel.toJSON());
+      // res.json(req.body); //response json 
       res.redirect("login");
     } catch (err) {
       res.status(500).send({ message: `${err.message} - falha ao cadastrar usuário.` });

@@ -21,7 +21,7 @@ class propertyController {
         .exec(); 
       const count = await dbPropertiesMd.count();
 
-      res.render("index", {
+      res.render("property", {
         locals,
         propertiesList,
         current: page,
@@ -39,7 +39,7 @@ class propertyController {
       let imovel = await new dbPropertiesMd(req.body);
       imovel.save();     
       // res.status(201).send(imovel.toJSON());
-      res.redirect("imoveis");
+      res.redirect("property");
     } catch (err) {
       res.status(500).send({ message: `${err.message} - falha ao cadastrar imovel.` });
     }
@@ -70,7 +70,7 @@ class propertyController {
   static updateProperty = async (req, res) => {
     try{
       await dbPropertiesMd.findByIdAndUpdate(req.params.id, {$set: req.body});
-      res.redirect("/imoveis");
+      res.redirect("/property");
       // await res.redirect(`/edit/${req.params.id}`);
   
     } catch(err) {
@@ -84,7 +84,7 @@ class propertyController {
     try{
       const id = req.params.id;
       await dbPropertiesMd.findByIdAndDelete({ _id: id });
-      res.redirect("/imoveis");
+      res.redirect("/property");
     } catch(err) {
       res.status(500).send({message: `${err} - falha ao remover o imóvel com o id`});
     }

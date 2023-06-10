@@ -1,31 +1,44 @@
 <body>
   <div id="register">
+    <% if(typeof alert != 'undefined') { %>
+      <% alert.forEach(function(error) { %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <%= error.msg %>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+      <% }) %>
+  <% } %>
     <asideRegister>
       
       <strong>Cadastro de Usuário<br/></strong>
+
+
     <form action = "/register" method = "post">
         <p>
           <div className='input-block'>
           <label htmlFor = "username"> Username: </label>
-          <input type="text" name="username" required />
+          <input type="text" name="username" placeholder="Username" required />
         </div>
       </p>
       <p>
         <div className='input-block'>
         <label htmlFor = "email"> Email: </label>
-        <input type="email" name="email" required />
+        <input type="email" name="email" placeholder="Email: nome@domínio.com"  required />
       </div>
     </p>
       <p>
         <div className='input-block'>
-          <label htmlFor = "password"> Senha (mínimo de 8 caracteres): </label>
-          <input type="password" name="password" id="password" minlength="8" required />
+          <label htmlFor = "password"> Senha: </label>
+          <input type="password" name="password" id="password" placeholder="Senha: (mín 8 caracteres)" minlength="8" required />
         </div>
       </p>
       <p>
         <div className='input-block'>
-          <label htmlFor = "confsenha"> Confirmar senha: </label>
-          <input type="password" name="confsenha" id="confpass" minlength="8" required />
+          <label htmlFor = "confpass"> Confirmar senha: </label>
+          <input type="password" name="confpass" id="confpass" minlength="8" placeholder="Confirme a sua senha aqui" required />
+          <p id="message"></p>
         </div>
       </p>
       <button type = "submit"> Cadastrar </button>       

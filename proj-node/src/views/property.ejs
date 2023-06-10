@@ -1,3 +1,5 @@
+<a link rel="stylesheet" href="/home"> Voltar</a></br>
+
 <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color: #FFD3CA">
 
   <a class="navbar-brand col-md-0 col-lg-0 me-0 px-3 fs-3" href="/"><i class="bi bi-search-heart"></i></a>
@@ -15,7 +17,7 @@
     <aside>
       
       <strong>Cadastro de Imóvel<br/></strong>
-    <form action = "/imoveis" method = "post">
+    <form action = "/property" method = "post">
         <p>
           <div className='input-block'>
           <label htmlFor = "logradouro"> Logradouro: </label>
@@ -64,6 +66,18 @@
           <input type="number" name="valor" />
         </div>
       </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "client"> Valor: </label>
+          <input type="text" name="cliente" />
+        </div>
+      </p>
+      <p>
+        <div className='input-block'>
+          <label htmlFor = "user"> Valor: </label>
+          <input type="text" name="user" />
+        </div>
+      </p>
       <button type = "submit" onClick="window.location.reload()" > Salvar </button>       
     </form>
   </aside>
@@ -85,6 +99,8 @@
           <th scope="Vagas">Vagas</th>
           <th scope="Metragem">Metragem</th>
           <th scope="Valor">Valor</th>
+          <th scope="Cliente">Cliente</th>
+          <th scope="User">User</th>
         </tr>
       </thead>
       <tbody>
@@ -99,10 +115,12 @@
           <td><%= dbProperties.vagas %></td>
           <td><%= dbProperties.metragem %></td>
           <td><%= dbProperties.valor %></td>
+          <td><%= dbProperties.client %></td>
+          <td><%= dbProperties.user %></td>
           <td class="text-end">
             <div class="d-flex flex-row justify-content-end gap-2">
               <a href="/edit/<%= dbProperties._id %>" type="button" class="btn btn-secondary btn-small"><i class="bi bi-pencil"></i></a>
-              <form action="/imoveis/<%= dbProperties._id %>?_method=DELETE" method="POST" class="position-relative">
+              <form action="/property/<%= dbProperties._id %>?_method=DELETE" method="POST" class="position-relative">
                 <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-trash-fill"></i></button>
               </form>
             </div>
@@ -118,7 +136,7 @@
               <% if (current == 1) { %>
                 <li class="page-item disabled"><a href="#" class="page-link">First</a></li>
               <% } else { %>
-                <li class="page-item"><a href="/imoveis/?page=1" class="page-link">First</a></li>
+                <li class="page-item"><a href="/property/?page=1" class="page-link">First</a></li>
               <% } %>
         
               <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
@@ -130,7 +148,7 @@
                 <% if (i == current) { %>
                   <li class="page-item disabled"><a href="#" class="page-link"><%= i %></a></li>
                 <% } else { %>
-                  <li class="page-item"><a href="/imoveis/?page=<%= i %>" class="page-link"><%= i %></a></li>
+                  <li class="page-item"><a href="/property/?page=<%= i %>" class="page-link"><%= i %></a></li>
                 <% } %>
                 <% if (i == Number(current) + 4 && i < pages) { %>
                   <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
@@ -140,7 +158,7 @@
               <% if (current == pages) { %>
                 <li class="page-item disabled"><a href="#" class="page-link">Last</a></li>
               <% } else { %>
-                <li class="page-item"><a href="/imoveis/?page=<%= pages %>" class="page-link">Last</a></li>
+                <li class="page-item"><a href="/property/?page=<%= pages %>" class="page-link">Last</a></li>
               <% } %>
         
             </ul>

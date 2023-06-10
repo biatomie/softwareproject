@@ -1,0 +1,85 @@
+<a link rel="stylesheet" href="/home"> Voltar</a></br>
+
+<header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow" style="background-color: #FFD3CA">
+
+  <a class="navbar-brand col-md-0 col-lg-0 me-0 px-3 fs-3" href="/"><i class="bi bi-search-heart"></i></a>
+  
+  <form class="nav col-12 col-md-auto flex-fill mb-2 justify-content-center mb-md-0" role="search" action="/search" method="POST">
+      <input type="search" name="searchTerm" class="form-control" placeholder="Buscar por nome, E-mail ou WhatsApp" aria-label="Search"> 
+  </form>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+</header>
+<body>
+  <div id="register">
+    <aside>
+      <strong>Cadastro de Cliente<br/></strong>
+      <form action = "/client" method = "post">
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "name"> name: </label>
+            <input type="text" name="name" required />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "email"> email: </label>
+            <input type="text" name="email" />
+          </div>
+          </p>
+          <p>
+          <div className='input-block'>
+            <label htmlFor = "whatsapp"> whatsapp: </label>
+            <input type="text" name="whatsapp" />
+          </div>
+          </p>
+          
+          <button type = "submit" > Salvar </button>
+          
+      </form>
+    </aside>
+  </div>
+  <tabela>
+    <div class="table-responsive">
+      <% if (clientsList != "") { %>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="Id">ID</th>
+              <th scope="name">Nome</th>
+              <th scope="email">E-mail</th>
+              <th scope="whatsapp">WhatsApp</th>
+
+            </tr>
+          </thead>
+          <tbody>
+          <% clientsList.forEach(dbclients => { %>
+            <tr>
+              <th scope="row"><%= dbclients._id %></th>
+              <td><%= dbclients.name %></td>
+              <td><%= dbclients.email %></td>
+              <td><%= dbclients.whatsapp %></td>
+              <td class="text-end">
+                <div class="d-flex flex-row justify-content-end gap-2">
+                  <a href="/edit/<%= dbclients._id %>" type="button" class="btn btn-secondary btn-small"><i class="bi bi-pencil"></i></a>
+                  <form action="/client/<%= dbclients._id %>?_method=DELETE" method="POST" class="position-relative">
+                    <button type="submit" class="btn btn-danger btn-small"><i class="bi bi-trash-fill"></i></button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% })%>
+            
+          </tbody>
+        </table>
+      <% } else { %>
+        <h2>No results found.</h2>
+      <% } %>
+      </div>
+
+  </tabela>
+  
+</body>

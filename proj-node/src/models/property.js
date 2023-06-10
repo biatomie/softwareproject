@@ -10,7 +10,9 @@ const propertiesSchema = new mongoose.Schema(
     quartos: {type: Number},
     banheiros: {type: Number},
     vagas: {type: Number},
-    valor: {type: Number}
+    valor: {type: Number},
+    client: {type: mongoose.Schema.Types.ObjectId, ref:"dbClientsMd" },
+    user: {type: mongoose.Schema.Types.ObjectId, ref:"dbUsersMd" },
   }
 );
 

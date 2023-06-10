@@ -6,6 +6,7 @@ import db from "./config/dbConnect.js";
 import routes from "./routes/index.js";
 
 
+
 db.on("error", console.log.bind(console, "Erro de conexão"));
 db.once("open", () => {
   console.log(`Banco de dados conectado: ${db.host}`);
@@ -43,4 +44,6 @@ app.get("/", (req,res) => {
 app.get("*", (req,res) => {
   res.status(404).render("404");
 });
+
+
 export default app;

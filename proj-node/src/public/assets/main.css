@@ -246,7 +246,7 @@ asideLogin form button:hover {
 
 asideRegister{
     width: 350px;
-    height: 450px;
+    height: 500px;
     margin: -25px 0 0 -25px;
     top: 30%;
     left: 40%;
@@ -266,6 +266,32 @@ asideRegister strong {
     display: block;
     color: #333;
 }
+
+asideRegister form button {
+    width: 100%;
+    border: 0;
+    margin-top: 10px;
+    background: #FFD3CA;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+}
+
+asideRegister form button:hover {
+    width: 100%;
+    border: 0;
+    margin-top: 10px;
+    background: #db4325;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+} 
 
 
 tabela {
